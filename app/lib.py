@@ -26,23 +26,3 @@ class TariffManager:
     def archived(self):
         return list(filter(lambda tariff: tariff.archived, self.items))
 
-
-if __name__ == '__main__':
-    manager = TariffManager()
-    my_online = Tariff('Мой онлайн', price=290, hit=True, gb=15, gb_unlim=['vk', 'fb'], minutes=400)
-    my_tele2 = Tariff('Мой теле2', price=7, price_period='day', gb=6)
-    univer = Tariff('Универ', archived=True)
-
-    manager.add(my_online)
-    manager.add(my_tele2)
-    manager.add(univer)
-
-    actual = manager.actual()
-    for item in actual:
-        print(item.name)
-
-    print('--')
-
-    archived = manager.archived()
-    for item in archived:
-        print(item.name)

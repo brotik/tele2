@@ -1,4 +1,4 @@
-from app import main
+from app import lib
 
 if __name__ == '__main__':
-    main.start()
+    lib.start()
