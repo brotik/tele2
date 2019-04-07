@@ -10,40 +10,41 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<h2> Archived Tariffs</h2>
-<table class="table table-bordered table-dark">
-    {% for item in result %}
-    <tr>
-        <td>{% item.name %}</td>
-                    <td>
-                        {% if item.hit == True %}
-                    <p>HIT!</p>
-                    {% else %}
-                    <p>    </p>
-                    {% endif %}
-                    </td>
-                    <td>{{item.gb}} GB</td>
-                    <td>{{item.minutes}} Minutes</td>
-                </tr>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2> Archived Tariffs</h2>
+            <table class="table table-bordered table-dark">
+                {% for item in result %}
                 <tr>
-                    <td>{{item.price}} / {{ item['price period'] }}</td>
-                    <td></td>
+                    <td><h2>{{ item.name }}
+                        {% if item.hit == True %}
+                        <p>HIT!</p>
+                        {% endif %}
+                    </h2>
+                        <p><span class="display-1">{{item.price}}</span>/{{ item.price_period }}</p>
+                    </td>
+                    <td><h2>{{item.gb}} GB</h2></td>
+                    <td><h2>{{item.minutes}} Minutes</h2></td>
                     <td>
-                        {% if item.gb_unlim == False %}
-                        <p>    </p>
-                        { %else% }
-                        <p>{{item.gb_unlim}}</p>
+                        {% if item.gb_unlim == None %}
+                        <h2>No unlim for social media</h2>
+                        {% else %}
+                        <h2> Unlim for {{ item.gb_unlim }}</h2>
                         {% endif %}
                     </td>
                     <td>
                         {% if item.minutes_unlim_tele2 == True %}
-                        <P>No Limit For Tele2 Calls</P>
+                        <h2>No Limit For Tele2 Calls</h2>
                         {% else %}
-                        <P>     </P>
+                        <h2></h2>
                         {% endif %}
                     </td>
                 </tr>
-    {% endfor %}
-</table>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
 </body>
 </html>

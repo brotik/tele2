@@ -7,7 +7,7 @@ from app.lib import Tariff, TariffManager
 def start():
     app = Flask(__name__)
     manager = TariffManager()
-    my_online = Tariff('Мой онлайн', price=290, hit=True, gb=15, gb_unlim=['vk', 'fb'], minutes=400)
+    my_online = Tariff('Мой онлайн', price=290, hit=True, gb=15, gb_unlim=['vk', 'fb', 'instagram', 'ok'], minutes=400)
     my_tele2 = Tariff('Мой теле2', price=7, price_period='day', gb=6)
     univer = Tariff('Универ', archived=True)
 
