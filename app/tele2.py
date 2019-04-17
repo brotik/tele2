@@ -17,9 +17,9 @@ def start():
 
     @app.route('/')
     def actual():
-        actual_tariff = manager.actual()
+        actual_tariffs = manager.actual()
         result = []
-        for item in actual_tariff:
+        for item in actual_tariffs:
             result.append(item)
         return render_template('index.html', result=result)
 
