@@ -10,10 +10,19 @@ def start():
     my_online = Tariff('Мой онлайн', price=290, hit=True, gb=15, gb_unlim=['vk', 'fb', 'instagram', 'ok'], minutes=400)
     my_tele2 = Tariff('Мой теле2', price=7, price_period='day', gb=6)
     univer = Tariff('Универ', archived=True)
+    my_talk = Tariff('Мой разговор', price=190, gb=3, gb_unlim=None, minutes=250)
+    classic = Tariff('Классический', price=0, minutes_unlim_tele2=0)
+    premium = Tariff('Премиум', price=1100, gb=40, minutes=2000)
+    my_tele2_11_2018 = Tariff('Мой теле2 11_2018',price=7.5, price_period='day', gb=20,
+                              gb_unlim=['vk', 'fb', 'instagram', 'ok'], minutes=700, archived=True)
 
     manager.add(my_online)
     manager.add(my_tele2)
     manager.add(univer)
+    manager.add(my_talk)
+    manager.add(classic)
+    manager.add(premium)
+    manager.add(my_tele2_11_2018)
 
     @app.route('/')
     def actual():
